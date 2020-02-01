@@ -73,16 +73,13 @@ public class BMICalculator {
 	}
 	
 	private void readMetricData() {
-		//Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter your weight in kilograms: ");
 		setWeight(sc.nextDouble());
 		System.out.print("Please enter your height in meters: ");
 		setHeight(sc.nextDouble());
-		//sc.close();
 	}
 	
 	private void readImperialData() {
-		//Scanner sc = new Scanner(System.in);
 		System.out.print("Please enter your weight in pounds: ");
 		setWeight(sc.nextDouble());
 		if (this.weight < 0.0) {
@@ -95,7 +92,6 @@ public class BMICalculator {
 			System.out.println("Program exiting");
 			System.exit(0);
 		}
-		//sc.close();
 	}
 	
 	public void calculateBmi() {
@@ -123,9 +119,9 @@ public class BMICalculator {
 	}
 	
 	public void displayBmi() {
-		System.out.println("Your BMI is " + this.getBmi() + 
-					", you are classified as " + this.getBmiCategory());
-		System.out.printf("BMI Categories:%nUnderweight =< 18.5%nNormal Weight = 18.5-24.9"
+		System.out.printf("%nYour BMI is %.2f, you are classified as %s%n",
+					this.getBmi(), this.getBmiCategory());
+		System.out.printf("%nBMI Categories:%nUnderweight =< 18.5%nNormal Weight = 18.5-24.9"
 				+ "%nOverweight = 25-29.9%nObese = 30+");
 	}
 	
