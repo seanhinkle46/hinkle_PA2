@@ -16,23 +16,31 @@ public class Application {
 				return x;
 			}
 		}
+		sc.close();
 		return 3;
 	}
 	public static void main(String[] args) {
 		Application app = new Application();
 		Encrypter enc = new Encrypter();
 		Decrypter dec = new Decrypter();
-		int x = app.readInput();
-		
-		if (x==1) {
-			System.out.print("This is the encrypted data: ");
-			enc.encrypt(app.input);
-			enc.displayArray();
-		}
-		else if (x==2) {
-			System.out.print("This is the decrypted data: ");
-			dec.encrypt(app.input);
-			dec.displayArray();
+		int x = 0;
+		while (x!=3) {
+			x = app.readInput();
+			if (x==1) {
+				System.out.print("This is the encrypted data: ");
+				enc.encrypt(app.input);
+				enc.displayArray();
+			}
+			else if (x==2) {
+				System.out.print("This is the decrypted data: ");
+				dec.decrypt(app.input);
+				dec.displayArray();
+			} 
+			else if (x==3) {
+				System.out.println("Exiting");
+			} else {
+				System.out.println("Please enter a valid input");
+			}
 		}
 	}
 }

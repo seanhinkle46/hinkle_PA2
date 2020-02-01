@@ -17,7 +17,6 @@ public class Encrypter {
 			encryptedInt[i] = x;
 		}
 		this.swapInts();
-		
 	}
 	
 	public char[] getOriginalIntString() {
@@ -28,6 +27,7 @@ public class Encrypter {
 		for (int i = 0; i < 4; i++) {
 			System.out.printf("%d", this.encryptedInt[i]);
 		}
+		System.out.println();
 	}
 	
 

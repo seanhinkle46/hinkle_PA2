@@ -8,7 +8,15 @@ public class Decrypter {
 	
 	public void decrypt(Integer input) {
 		this.setLeadZeros(input);
+		this.setOriginalIntString(input);
 		
+		for (int i = 0; i < 4; i++) {
+			int x = Character.getNumericValue(this.originalIntString[i]);
+			x += 3;
+			x = x % 10;
+			decryptedInt[i] = x;
+		}
+		this.swapInts();
 	}
 	
 	public void setOriginalIntString(Integer input) {
@@ -61,5 +69,6 @@ public class Decrypter {
 		for (int i = 0; i < 4; i++) {
 			System.out.printf("%d", this.decryptedInt[i]);
 		}
+		System.out.println();
 	}
 }
