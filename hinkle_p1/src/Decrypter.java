@@ -11,10 +11,13 @@ public class Decrypter {
 	private char[] originalIntString = new char[4];
 	private int[] decryptedInt = new int[4];
 	
+	//Calls various helper functions, then performs the mathematical 
+	//operations to decrypt the integer
 	public void decrypt(Integer input) {
 		this.setLeadZeros(input);
 		this.setOriginalIntString(input);
 		
+		//converts individual digits to their decrypted values
 		for (int i = 0; i < 4; i++) {
 			int x = Character.getNumericValue(this.originalIntString[i]);
 			x += 3;
@@ -24,6 +27,7 @@ public class Decrypter {
 		this.swapInts();
 	}
 	
+	//Takes the original input and converts it into a character array
 	public void setOriginalIntString(Integer input) {
 		//puts all leading zeros into the character array
 		if (this.leadZeros != 0) { 
@@ -31,7 +35,7 @@ public class Decrypter {
 				this.originalIntString[i] = '0';
 			}
 		}	
-		//places 
+		//places the remaining digits in the array
 		int count = this.leadZeros;
 		int i = 0;
 		while (count < 4) {
@@ -40,6 +44,8 @@ public class Decrypter {
 			count++;
 		}
 	}
+	
+	//Swaps the first and third and second and fourth digits in the number
 	public void swapInts() {
 		int temp = this.decryptedInt[0];
 		this.decryptedInt[0] = this.decryptedInt[2];
@@ -49,6 +55,9 @@ public class Decrypter {
 		this.decryptedInt[1] = this.decryptedInt[3];
 		this.decryptedInt[3] = temp;
 	}
+	
+	//Determines the number of leading zeros the number should have, 
+	//given that it will be 4 digits
 	public void setLeadZeros(Integer in) {
 		if (in == 0) {
 			this.leadZeros = 4;
@@ -70,6 +79,7 @@ public class Decrypter {
 		}
 	}
 	
+	//Method displays the array of ints by printing one at a time, followed by a new line
 	public void displayArray() {
 		for (int i = 0; i < 4; i++) {
 			System.out.printf("%d", this.decryptedInt[i]);
