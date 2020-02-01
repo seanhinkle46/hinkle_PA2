@@ -1,4 +1,9 @@
 /*Sean Hinkle, COP3330, Dr. Hollander
+ * Takes in a four digit integer (already encrypted),
+ * and reverses the encrpytion formula by:
+ * adding 3 and then performing modulo 10 on each digit,
+ * followed by swapping the first and third, and second and fourth digits
+ * Stored the decrypted int to be displayed later
 */
 
 public class Decrypter {
